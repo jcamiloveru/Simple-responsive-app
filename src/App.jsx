@@ -4,16 +4,16 @@ import Footer from "./components/footer.jsx";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const seeMenu = (isOpen) => {
-    setIsOpen(isOpen);
+  const handleClick = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div className="flex flex-col h-screen">
-      <Header seeMenu={seeMenu}></Header>
-      <AsideAndMain seeMenu={seeMenu} isOpen={isOpen}></AsideAndMain>
+      <Header onClick={handleClick}></Header>
+      <AsideAndMain onClick={handleClick} menu={isMenuOpen}></AsideAndMain>
       <Footer></Footer>
     </div>
   );
