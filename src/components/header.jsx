@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Header = ({ handleClick }) => {
+const Header = ({ onClick }) => {
 
   return (
     <header className="text-white bg-blue-500">
@@ -13,7 +13,7 @@ const Header = ({ handleClick }) => {
         <hr /> {/** //!modificar esta linea */}
         {/* nav button */}
         <nav className="p-2 md:hidden flex justify-between">
-          <button onClick={handleClick}>
+          <button onClick={onClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
