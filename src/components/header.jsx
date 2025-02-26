@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
-const Header = ({ seeMenu }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleClick() {
-    setIsOpen(!isOpen);
-    seeMenu(isOpen);
-  }
+const Header = ({ handleClick }) => {
 
   return (
     <header className="text-white bg-blue-500">
