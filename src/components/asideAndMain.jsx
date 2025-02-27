@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-const AsideAndMain = ({ seeMenu, isOpen }) => {
-  const [isClose, setIsClose] = useState(isOpen);
+const AsideAndMain = ({ onClick, menuStatus }) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -10,20 +9,19 @@ const AsideAndMain = ({ seeMenu, isOpen }) => {
 
   function handleClic() {
     if (width < 768) {
-      setIsClose(!isClose);
-      seeMenu(isClose);
+      onClick();
     }
   }
 
   return (
     <div
       className={`grid grow md:container ${
-        isOpen ? "grid-cols-1" : "grid-cols-5 gap-4 mx-auto max-w-10/12"
+        menuStatus ? "grid-cols-1" : "grid-cols-5 gap-4 mx-auto max-w-10/12"
       }`}
     >
       <aside
         className={`${
-          isOpen ? "col-span-3 mx-full" : "hidden"
+          menuStatus ? "col-span-3 mx-full" : "hidden"
         } md:inline-block py-4 bg-blue-500`}
       >
         <h3 className="font-bold text-white mx-4">This is first aside</h3>
@@ -58,7 +56,7 @@ const AsideAndMain = ({ seeMenu, isOpen }) => {
 
       <main
         className={`${
-          isOpen && "hidden"
+          menuStatus && "hidden"
         } col-span-5 md:col-span-4 lg:col-span-3 py-4 flex flex-col gap-4`}
       >
         <section

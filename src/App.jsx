@@ -1,7 +1,7 @@
 import Header from "./components/header.jsx";
 import AsideAndMain from "./components/asideAndMain.jsx";
 import Footer from "./components/footer.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,10 @@ function App() {
   return (
     <div className="flex flex-col h-screen">
       <Header onClick={handleClick}></Header>
-      <AsideAndMain onClick={handleClick} menu={isMenuOpen}></AsideAndMain>
+      <AsideAndMain
+        onClick={handleClick}
+        menuStatus={isMenuOpen}
+      ></AsideAndMain>
       <Footer></Footer>
     </div>
   );
