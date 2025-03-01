@@ -6,6 +6,6 @@
   }
 
   .elemento {
-    @apply text-white hover:text-gray-50 border-l font-semibold py-1 px-5;
+    @apply text-white hover:text-gray-50 border-l font-semibold py-1 px-5 text-lg;
   }
 }

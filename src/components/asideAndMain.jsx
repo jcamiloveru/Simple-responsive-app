@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 
 const AsideAndMain = ({ onClick, menuStatus }) => {
-  const [width, setWidth] = useState(window.innerWidth);
-
   useEffect(() => {
-    setWidth(window.innerWidth);
-  }, [window.innerWidth]);
+    const handleResize = () => {
+      if (menuStatus && window.innerWidth > 768) onClick();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [menuStatus]);
 
   function handleClic() {
-    if (width < 768) {
+    if (window.innerWidth < 768) {
       onClick();
     }
   }
